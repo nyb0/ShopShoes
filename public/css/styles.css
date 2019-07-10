@@ -213,7 +213,7 @@ body main .container .row{
     text-shadow: 2px 2px 0 #000;
 }
 .auth-body .btn-pass{
-    color: rgb(95, 3, 3, .85);
+    color: hsla(0, 94%, 19%, 0.85);
     font-weight: 600;
 }
 
@@ -226,3 +226,10 @@ body main .container .row{
 .form-control#description{
     height: calc(15em + 0.75rem + 2px);
 }
+.custom-control-input:checked ~ .custom-control-label::before{
+    border-color: rgba(21, 21, 21, .75);
+    background-color: #5f0303;
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #b60404;
+  }

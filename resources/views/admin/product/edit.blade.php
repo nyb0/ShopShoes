@@ -10,7 +10,7 @@
     
 <div class="col-md-12 d-flex justify-content-center p-0 m-0">
     <div class="auth col-md-10 p-0 pb-3">
-        <div class="auth-header mb-3">{{ __('Create new product') }}</div>
+        <div class="auth-header mb-3">{{ __('Edit product: ' . $product->article) }}</div>
 
         <form method="post" enctype="multipart/form-data">
             @csrf
@@ -19,11 +19,11 @@
                 <label for="category_id" class="col-md-2 col-form-label text-md-right">Category_ID:</label>
                 <div class="col-md-9">                    
                     <select name="category_id" id="category_id" class="custom-select">
-                        <option disabled selected>Choise Category_ID</option>
-                        <option value="1111">1111</option>
-                        <option value="1122">1122</option>
-                        <option value="1133">1133</option>
-                        <option value="2222">2222</option>
+                        <option disabled>Choise Category_ID</option>
+                        <option value="1111" {{ ($product->categoty_id ==='1111') ? 'selected' : ''}}>1111</option>
+                        <option value="1122" {{ ($product->categoty_id ==='1122') ? 'selected' : ''}}>1122</option>
+                        <option value="1133" {{ ($product->categoty_id ==='1133') ? 'selected' : ''}}>1133</option>
+                        <option value="2222" {{ ($product->categoty_id ==='2222') ? 'selected' : ''}}>2222</option>
                     </select>
                 </div>
             </div>

@@ -28,8 +28,8 @@
                 <td>{{ $product->brand }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->quantity }}</td>
-                <td><a href="{{ url('admin/edit-product/' . $product->id ) }}">Edit</a></td>
-                <td><a href="{{ url('admin/delete-product/' . $product->id ) }}">Delete</a></td>
+                <td><a href="{{ url('admin/edit-product/' . $product->id) }}">Edit</a></td>
+                <td><a href="{{ url('admin/delete-product/' . $product->id) }}">Delete</a></td>
             </tr>
         @endforeach
         </tbody>

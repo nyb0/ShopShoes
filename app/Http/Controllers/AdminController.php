@@ -48,4 +48,9 @@ class AdminController extends Controller
         $product = Product::find($productId);
         return view('admin.product.edit', ['product' => $product]);
     }
+
+    public function deleteProduct($productId){
+        $product = Product::find($productId);
+        return view('admin.product.delete', ['product' => $product]);
+    }
 }

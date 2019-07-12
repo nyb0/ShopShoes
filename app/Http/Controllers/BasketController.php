@@ -14,7 +14,8 @@ class BasketController extends Controller
 
     public function addToBasket(Request $request) {
         Basket::addToBasket($request);
-        return redirect('basket');
+        return Basket::getBasketCount();     
+        
     }
 
     public function deleteFromBasket(Request $request) {

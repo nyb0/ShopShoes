@@ -50,8 +50,7 @@ class Basket
             $basket[$id] = $quantity;
         }
 
-        Session::put('basket', $basket);        
-        Basket::getBasketCount();
+        Session::put('basket', $basket); 
     }
 
     static public function getBasketCount() {

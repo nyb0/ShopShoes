@@ -89,63 +89,73 @@ body main .container .row{
 }
 /*GALLERY BLADE*/
 .content{
+    background-color: rgba(94, 1, 1, 0.6);
+}
+.content, .gallery-box{
     flex-flow: row wrap;
-    background-color: rgb(93, 2, 2, .7);
-    min-height: calc(100vh - 100px - 1rem);
     align-content: flex-start;
+}
+.content{
+    min-height: calc(100vh - 100px - 1rem);
+}
+.gallery-box{
+    min-height: calc(100vh - 138px - 2.5rem);
 }
 .content .article{
     position: relative;
-    border: rgb(66, 66, 66, .75) .5em solid;
+    border: rgb(66, 66, 66, .75) .25em solid;
     background-color: #cdcdcd;
     box-sizing: border-box;
     overflow: hidden;
 }
 .content .article .classcat{
-    position: absolute;
-    transition: .8s;
-    top: 100px;
-    left: 25px;
     background-color: rgba(0, 0, 0, 0.25);
     padding: 5px 10px;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0;
     border-left: 3px solid #5f0303;
-    transform: translateX(-120%);
     font-size: 2vw;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 5px 5px #5f0303;
 }
-.content .article:hover>.classcat{
+.content>.gallery-box>.article .classcat{
+    position: absolute;
+    transition: .8s;
+    top: 100px;
+    left: 25px;
+    transform: translateX(-120%);
+    border-radius: 0 20px 20px 0;
+}
+.content>.gallery-box>.article:hover>.classcat{
     transform: translateX(2%);
 }
-.content .article .classcat p{
+.content .article .classcat p, .content .article .character p{
     margin: 0;
 }
 .content .article .character{
-    position: absolute;
-    transition: .8s;
-    bottom: 110px;
-    left: 31px;
     background-color: rgba(0, 0, 0, 0.25);
     padding: 5px 10px;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0;
     border-left: 3px solid #5f0303;
-    transform: translateY(300%);
     font-size: 1.4vw;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 5px 5px #5f0303;
 }
-.content .article:hover>.character{
-    transform: translateY(0);
+.content>.gallery-box>.article .character{
+    position: absolute;
+    transition: .8s;
+    bottom: 150px;
+    left: 31px;
+    transform: translateY(300%);
+    border-radius: 0 20px 20px 0;
 }
-.content .article .character p{
-    margin: 0;
+.content>.gallery-box>.article:hover>.character{
+    transform: translateY(0);
 }
 .content .article img{
     width: 100%;
 }
-.content .article h3{
-    font-size: 1.2em;
+.content .article p{
+    white-space: pre-wrap;
 }
 .content .article .price{
     box-sizing: border-box;
@@ -153,7 +163,10 @@ body main .container .row{
     bottom: 0px;
 }
 
-/*LOGIN_BLADE*/
+/*PAGINATION*/
+.pagination-box{
+    min-height: calc(38px + .5rem);
+}
 .pagination{
     margin: 0;
 }

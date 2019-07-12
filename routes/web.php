@@ -14,15 +14,25 @@
 Auth::routes();
 
 Route::prefix('admin')->group(function(){
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'AdminController@allProducts');
+
     Route::get('/create-product', 'AdminController@createProduct');
     Route::post('/create-product', 'AdminController@saveProduct');
+    
     Route::get('/edit-product/{product_id}', 'AdminController@editProduct');
+    Route::post('/edit-product/{product_id}', 'AdminController@saveProduct');
+    
     Route::get('/delete-product/{product_id}', 'AdminController@deleteProduct');
 });
 
 Route::get('/home', 'HomeController@home');
-Route::get('/basket', 'BasketController@index');
+
+Route::prefix('basket')->group(function(){
+    Route::get('/', 'BasketController@index');
+    Route::post('/', 'BasketController@addToBasket');
+    Route::get('/checkout', 'BasketController@checkout');
+    Route::post('/deleteFromBasket', 'BasketController@deleteFromBasket');
+});
 
 Route::get('/', 'GalleryController@index');
 Route::get('/{category_id}', 'GalleryController@category');

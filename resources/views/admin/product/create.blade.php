@@ -40,10 +40,10 @@
                 <div class="col-md-9">                                     
                     <select name="brand" id="brand" class="custom-select">
                         <option disabled selected>Choise Brand</option>
-                        <option value="1111">ADIDAS</option>
-                        <option value="1122">NIKE</option>
-                        <option value="1133">PUMA</option>
-                        <option value="2222">VANS</option>
+                        <option value="ADIDAS">ADIDAS</option>
+                        <option value="NIKE">NIKE</option>
+                        <option value="PUMA">PUMA</option>
+                        <option value="VANS">VANS</option>
                     </select>
                 </div>
             </div>
@@ -100,8 +100,8 @@
                 <div class="col-md-9">                                     
                     <select name="season" id="season" class="custom-select">
                         <option disabled selected>Choise Season</option>
-                        <option value="Classic">Autumn/Winter</option>
-                        <option value="Sport">Spring/Summer</option>
+                        <option value="Autumn/Winter">Autumn/Winter</option>
+                        <option value="Spring/Summer">Spring/Summer</option>
                     </select>
                 </div>
             </div>

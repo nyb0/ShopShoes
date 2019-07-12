@@ -53,10 +53,19 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
+
+                            <a class="nav-link mx-0" href="{{ url('/basket') }}">
+                                {{ __('Basket') }}
+                                (<span id="basket-count">{{ \SHOP\Basket::getBasketCount() }}</span>)
+                            </a>
+
+                            
+
                             <div class="dropdown-menu dropdown-menu-right dropdown-user mx-0" aria-labelledby="navbarDropdown">
                                 
-                                <a class="dropdown-item drop-link" href="#">
+                                <a class="dropdown-item drop-link" href="{{ url('/basket') }}">
                                     {{ __('Basket') }}
+                                    <span id="basket-count">({{ \SHOP\Basket::getBasketCount() }})</span>
                                 </a>
                                 
                                 <a class="dropdown-item drop-link" href="#">

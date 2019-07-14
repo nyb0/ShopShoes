@@ -47,4 +47,19 @@ class Product extends Model
         
         Product::find($productId)->delete();
     }
+
+    public static function search($word){
+        $products = Product::where('article', 'LIKE', '%' . $word . '%')->limit(5)->get();
+        $result = [];
+
+        foreach ($products as $product){
+            $result[] = [
+                'id'          => $product->id,
+                'category_id' => $product->category_id,
+                'article'     => $product->article,
+                'price'       => $product->price
+            ]; 
+        }
+        return $result;
+    }
 }

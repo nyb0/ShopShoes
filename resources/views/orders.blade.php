@@ -16,7 +16,7 @@
                 <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ $order->id }}" aria-expanded="false" aria-controls="collapse{{ $order->id }}">
-                            Order ID #{{ $order->id }}, User name: {{ $order->user->name }}, Total price = {{ $order->total_price }} $.
+                            Order ID #{{ $order->id }}, Total price = {{ $order->total_price }} $.
                         </button>
                     </h2>
                 </div>

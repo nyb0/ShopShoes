@@ -3,6 +3,7 @@
 namespace SHOP\Http\Controllers;
 
 use SHOP\Product;
+use SHOP\Order;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -41,7 +42,12 @@ class AdminController extends Controller
     public function deleteProduct($productId){
 
         Product::deleteProduct($productId);
-        
         return redirect('/admin');
+    }
+    
+    public function getOrders() {
+
+        $orders = Order::all();
+        return view('admin.orders', ['orders' => $orders]);
     }
 }

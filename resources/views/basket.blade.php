@@ -26,11 +26,11 @@
                     <td>{{ $product['quantity'] }}</td>
                     <td>{{ $product['price'] }}</td>
                     <td>
-                        <form action="/basket/deleteFromBasket" method="post">
+                        <form action="/basket/delete-from-basket" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $product['id'] }}">
 
-                            <button class="btn btn-danger">delete</button>
+                            <button class="btn btn-danger btn-delete">delete</button>
                         </form>
 
                     </td>
@@ -42,7 +42,7 @@
         <h4>Total price: {{ $totalPrice }}</h4>
 
         <div>
-            <a class="btn btn-info" href="{{ url('/basket/checkout') }}">Checkout</a>
+            <a class="btn btn-info" href="{{ url('/basket/make-order') }}">Make order</a>
         </div>
     </div>
 

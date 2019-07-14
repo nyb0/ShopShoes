@@ -19,4 +19,8 @@ class GalleryController extends Controller
         $product = Product::find($productId);
         return view('product', ['product' => $product]);
     }
+    public function search(Request $request){
+        $word = $request->input('word');
+        return Product::search($word);;
+    }
 }

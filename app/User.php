@@ -41,6 +41,6 @@ class User extends Authenticatable
     const ROLE_ADMIN = 5;
     
     public function orders() {
-        return $this->hasMany('\SHOP\Order', 'users_id');
+        return $this->hasMany('\SHOP\Order', 'user_id');
     }
 }

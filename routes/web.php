@@ -23,16 +23,20 @@ Route::prefix('admin')->group(function(){
     Route::post('/edit-product/{product_id}', 'AdminController@saveProduct');
     
     Route::get('/delete-product/{product_id}', 'AdminController@deleteProduct');
-});
 
-Route::get('/home', 'HomeController@home');
+    Route::get('/orders', 'AdminController@getOrders');
+});
 
 Route::prefix('basket')->group(function(){
     Route::get('/', 'BasketController@index');
     Route::post('/', 'BasketController@addToBasket');
-    Route::get('/checkout', 'BasketController@checkout');
-    Route::post('/deleteFromBasket', 'BasketController@deleteFromBasket');
+    Route::get('/make-order', 'BasketController@makeOrder');
+    Route::post('/delete-from-basket', 'BasketController@deleteFromBasket');
 });
+
+Route::get('/orders', 'OrdersController@getOrders');
+
+Route::get('/search', 'GalleryController@search');
 
 Route::get('/', 'GalleryController@index');
 Route::get('/{category_id}', 'GalleryController@category');

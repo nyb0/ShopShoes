@@ -4,6 +4,9 @@ namespace SHOP;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use SHOP\Order;
+use SHOP\Product;
 
 class Basket
 {
@@ -50,7 +53,7 @@ class Basket
             $basket[$id] = $quantity;
         }
 
-        Session::put('basket', $basket); 
+        Session::put('basket', $basket);
     }
 
     static public function getBasketCount() {
@@ -74,8 +77,36 @@ class Basket
     static public function deleteFromBasket(Request $request){
 
         $id = $request->input('id');
-        $basket = $request->session()->get('basket');
+        $basket = Session::get('basket');
         unset($basket[$id]);
-        $request->session()->put('basket', $basket);
+        Session::put('basket', $basket);
+    }
+
+    static public function makeOrder(){
+        
+        if (Auth::guest() === true) {
+            echo 'Please login'; exit;
+        }
+        
+        $basket = Basket::getBasket();
+
+        if ($basket['totalPrice'] !== 0) {
+
+            $order = new Order();
+            $order->user_id = Auth::user()->id;
+            $order->total_price = $basket['totalPrice'];
+            
+            $productIds = [];
+            foreach ($basket['products'] as $id => $product) {
+                $productIds[$id]['quantity'] = $product['quantity'];
+            }
+
+            $order->save();
+            $order->products()->attach($productIds);
+
+            $basket = null;
+            Session::put('basket', $basket);
+
+        }
     }
 }

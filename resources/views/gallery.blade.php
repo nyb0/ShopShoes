@@ -19,13 +19,13 @@
                     <p>Season: {{ $product->season }}</p>               
                 </div>
                 <p class="d-inline">{{ mb_strimwidth($product->description, 0, 110) }}</p>
-                <a href="{{ url('/' . $product->category_id . '/' . $product->id ) }}">...</a>
+                <a href="{{ url('/' . $product->category_id . '/' . $product->id ) }}">...see more</a>
                 <div class="d-flex price justify-content-between">
                     <span>Price: {{ $product->price }}</span>
                     <span>Quantity: {{ $product->quantity }}</span>
                 </div>
 
-                <form class="d-flex" action="{{ url('/basket/') }}" method="post">
+                <form class="d-flex buy-form" action="{{ url('/basket/') }}" method="post">
                     @csrf
                     <input type="hidden" value="{{ $product->id }}" name="product_id">
                     <input type="number" class="form-control offset-md-6 col-md-3 d-inline-block" name="quantity" value="1">

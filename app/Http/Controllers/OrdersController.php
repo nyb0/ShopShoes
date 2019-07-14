@@ -3,8 +3,9 @@
 namespace SHOP\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -20,8 +21,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function home()
+    public function getOrders()
     {
-        return view('home');
+        $user = Auth::user();
+        return view('orders', ['orders' => $user->orders]);
     }
 }

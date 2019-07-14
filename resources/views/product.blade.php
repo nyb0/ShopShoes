@@ -2,12 +2,6 @@
 
 @section('content')
 
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
     <div class="article col-md-12 py-2">
         <h1>{{ $product->article }}</h1>
         <div class="classcat">
@@ -28,7 +22,7 @@
             <span>Quantity: {{ $product->quantity }}</span>
         </div>
         
-        <form class="d-flex" action="{{ url('/basket/') }}" method="post">
+        <form class="d-flex buy-form" action="{{ url('/basket/') }}" method="post">
             @csrf
             <input type="hidden" value="{{ $product->id }}" name="product_id">
             <input type="number" class="form-control offset-md-7 col-md-2 d-inline-block" name="quantity" value="1">

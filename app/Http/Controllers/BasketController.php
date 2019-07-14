@@ -14,12 +14,16 @@ class BasketController extends Controller
 
     public function addToBasket(Request $request) {
         Basket::addToBasket($request);
-        return Basket::getBasketCount();     
-        
+        return Basket::getBasketCount();
     }
 
     public function deleteFromBasket(Request $request) {
         Basket::deleteFromBasket($request);
         return redirect('basket');
+    }
+
+    public function makeOrder() {
+        Basket::makeOrder();
+        return redirect('orders');
     }
 }
